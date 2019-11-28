@@ -1,0 +1,190 @@
+/* IMPORT */
+@import url("https://fonts.googleapis.com/css?family=DM+Sans:400,700|Space+Mono:400,700&display=swap");
+
+/* DEBUG */
+[debug],
+[debug] * {
+  outline: solid 1px #9400ff;
+  box-shadow: none;
+  filter: none;
+}
+
+/* -------------------- GLOBAL RULES -------------------- */
+/* On utilise les CSS variables pour définir les couleurs
+ * https://developer.mozilla.org/fr/docs/Web/CSS/Using_CSS_custom_properties
+*/
+:root {
+  --black: #1e1e1e;
+  --grey: #faf9f5;
+  --white: #ffffff;
+  --yellow: #ffcc33;
+  --orange: #f87624;
+  --linearOrange: rgba(250, 110, 35, 0.8);
+  --linearYellow: rgba(255, 200, 50, 0.5);
+}
+
+body {
+  font-family: "DM Sans", Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  line-height: 1.5;
+  color: var(--black);
+}
+
+/* Reset le style par défaut des liens */
+a {
+  color: var(--black);
+  text-decoration: none;
+}
+
+/* -------------------- NAVIGATION -------------------- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  font-family: "Space Mono", monospace;
+  background-color: var(--grey);
+}
+
+header h1 {
+  font-size: 34px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+nav {
+  display: flex;
+}
+
+nav ul {
+  display: flex;
+}
+
+li {
+  font-size: 18px;
+  padding-right: 30px;
+}
+
+.cart-item {
+  position: relative;
+}
+
+/* On positionne notre élément en fonction du parent qui est `relative` */
+.cart-item span {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background-color: var(--yellow);
+  font-size: 14px;
+  border-radius: 50%;
+}
+
+/* -------------------- HERO -------------------- */
+/* On utilise le viewport unit : https://css-tricks.com/fun-viewport-units/
+ *  10vh = 10% d'un écran
+*/
+
+.hero {
+  height: 110vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(
+      to bottom,
+      var(--linearOrange),
+      var(--linearYellow)
+    ),
+    url("img/hero3.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Les marges sont calculées automatiquement avec `auto` */
+.hero h2 {
+  max-width: 1200px;
+  margin: 0 auto;
+  color: var(--white);
+  font-size: 80px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.nosamis h3 {
+  font-family: "DM Sans", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 34px;
+
+  align-items: center;
+  text-align: center;
+
+  color: #1e1e1e;
+
+  transform: rotate(-1deg);
+}
+
+.nosamis {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 39px;
+  /* identical to box height */
+  text-align: center;
+  /* Black */
+  color: #1e1e1e;
+}
+
+.items {
+  display: flex;
+}
+
+.item {
+  padding: 10px;
+  align-items: stretch;
+  align-content: stretch;
+  width: 600px;
+  height: 400px;
+}
+
+img {
+  object-fit: cover;
+  height: 400px;
+  width: 600px;
+  max-width: 100%;
+}
+
+.nosamis {
+  padding: 50px;
+}
+
+.nosamis h3 {
+  padding: 10px 30px;
+  border-radius: 4px;
+  font-size: 30px;
+  font-weight: 700;
+  width: 250px;
+  background-color: var(--orange);
+  transform: rotate(-2deg);
+}
+
+.nosamis a {
+  font-family: "Space Mono", monospace;
+  display: flex;
+  align-items: center;
+}
+
+.nosamis i {
+  margin-left: 20px;
+}
+
+.title {
+  width: 100px;
+}
