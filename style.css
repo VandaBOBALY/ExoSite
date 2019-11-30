@@ -289,6 +289,18 @@ li {
   text-transform: capitalize;
 }
 
+.profile {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 5px;
+  color: black;
+  z-index: 10;
+  font-family: "DM Sans", Arial, Helvetica, sans-serif;
+  font-size: 34px;
+}
+
 @media (max-width: 850px) {
   .product-badge {
     display: none;
@@ -306,18 +318,6 @@ li {
     padding: 10px 20px;
     font-size: 16px;
   }
-}
-
-.profile {
-  position: absolute;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  padding: 5px;
-  color: black;
-  z-index: 10;
-  font-family: "DM Sans", Arial, Helvetica, sans-serif;
-  font-size: 34px;
 }
 
 /* -------------------- PHILOSOPHY -------------------- */
@@ -461,7 +461,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: antiquewhite;
+  background-color: #fad5c4;
   color: var(--black);
 }
 
