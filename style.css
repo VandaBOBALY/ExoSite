@@ -20,7 +20,7 @@
   --yellow: #ffcc33;
   --orange: #f87624;
   --linearOrange: rgba(250, 110, 35, 0.8);
-  --linearYellow: rgba(255, 200, 50, 0.5);
+  --linearYellow: rgba(255, 200, 50, 0.007);
 }
 
 body {
@@ -41,9 +41,9 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 30px;
+  padding: 30px 30px;
   font-family: "Space Mono", monospace;
-  background-color: var(--grey);
+  background-color: #f0cfaf;
 }
 
 header h1 {
@@ -69,7 +69,6 @@ li {
   position: relative;
 }
 
-/* On positionne notre élément en fonction du parent qui est `relative` */
 .cart-item span {
   position: absolute;
   top: -10px;
@@ -83,29 +82,34 @@ li {
   font-size: 14px;
   border-radius: 50%;
 }
+@media (max-width: 850px) {
+  header h1 {
+    font-size: 24px;
+  }
+
+  nav {
+    display: none;
+  }
+
+  header .fa-bars {
+    display: block;
+  }
+}
 
 /* -------------------- HERO -------------------- */
-/* On utilise le viewport unit : https://css-tricks.com/fun-viewport-units/
- *  10vh = 10% d'un écran
-*/
 
 .hero {
-  height: 110vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: linear-gradient(
-      to bottom,
-      var(--linearOrange),
-      var(--linearYellow)
-    ),
-    url("img/hero3.jpg");
+  height: 1200px;
+  background-image: linear-gradient(to bottom, #f0cfaf, var(--linearYellow)),
+    url("/img/hero3.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-/* Les marges sont calculées automatiquement avec `auto` */
 .hero h2 {
   max-width: 1200px;
   margin: 0 auto;
@@ -115,76 +119,375 @@ li {
   line-height: 1.2;
 }
 
-.nosamis h3 {
-  font-family: "DM Sans", sans-serif;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 34px;
+@media (max-width: 850px) {
+  .hero {
+    height: 40vh;
+  }
 
-  align-items: center;
-  text-align: center;
-
-  color: #1e1e1e;
-
-  transform: rotate(-1deg);
+  .hero h2 {
+    max-width: 500px;
+    padding: 20px;
+    font-size: 50px;
+  }
 }
 
-.nosamis {
-  font-family: DM Sans;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 30px;
-  line-height: 39px;
-  /* identical to box height */
-  text-align: center;
-  /* Black */
-  color: #1e1e1e;
-}
-
-.items {
-  display: flex;
-}
-
-.item {
-  padding: 10px;
-  align-items: stretch;
-  align-content: stretch;
-  width: 600px;
-  height: 400px;
-}
-
-img {
-  object-fit: cover;
-  height: 400px;
-  width: 600px;
-  max-width: 100%;
-}
-
-.nosamis {
-  padding: 50px;
-}
-
-.nosamis h3 {
-  padding: 10px 30px;
-  border-radius: 4px;
-  font-size: 30px;
-  font-weight: 700;
-  width: 250px;
-  background-color: var(--orange);
-  transform: rotate(-2deg);
-}
-
-.nosamis a {
-  font-family: "Space Mono", monospace;
-  display: flex;
-  align-items: center;
-}
-
-.nosamis i {
-  margin-left: 20px;
+/* -------------------- COLLECTION -------------------- */
+.collection {
+  background-color: #fad5c4;
 }
 
 .title {
-  width: 100px;
+  font-size: 34px;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 30px;
+  font-family: "Space Mono", monospace;
+  background-color: #fad5c4;
+}
+
+.collection-items {
+  display: flex;
+  padding: 50px 50px 100px 50px;
+  overflow-x: auto;
+}
+
+/* Par défaut un flex item est `flex: 0 1 auto`
+ * ici `flex: none` annule la propriété `flex` de l'élément
+ * `flex:none` est identique à `flex: 0 0 auto`
+*/
+.collection-item {
+  flex: none;
+  padding-right: 50px;
+}
+
+/* On masque la barre de scroll avec le préfixe -webkit
+ * https://developer.mozilla.org/fr/docs/Web/CSS/WebKit_Extensions
+
+.collection-items::-webkit-scrollbar {
+  display: none;
+}*/
+
+.collection-item img {
+  max-width: 100%;
+  width: 750px;
+  height: 600px;
+}
+
+.collection-info {
+  text-align: center;
+}
+
+.collection-info h4 {
+  margin-top: 20px;
+  font-size: 32px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.collection-info a {
+  font-family: "Space Mono", monospace;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 700;
+  border-bottom: 3px solid var(--orange);
+}
+
+@media (max-width: 850px) {
+  .section-top-bar {
+    padding: 30px;
+  }
+
+  .section-top-bar h3 {
+    font-size: 20px;
+  }
+
+  .section-top-bar a {
+    font-size: 20px;
+  }
+
+  .section-top-bar .fa-arrow-right {
+    display: none;
+  }
+
+  .collection-items {
+    padding: 0 30px 50px 30px;
+  }
+
+  .collection-item {
+    padding-right: 30px;
+  }
+
+  .collection-item img {
+    width: 350px;
+  }
+
+  .collection-info h4 {
+    font-size: 20px;
+  }
+
+  .collection-info a {
+    font-size: 16px;
+  }
+}
+
+/* -------------------- PRODUCT -------------------- */
+
+.product {
+  background-color: #fad5c4;
+}
+
+.product-items {
+  max-width: 1440px;
+  padding: 50px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* On soustrait les marges avec `calc`, 50% - 40px (margin-left + margin-right)
+ * https://developer.mozilla.org/fr/docs/Web/CSS/calc
+*/
+.product-item {
+  width: calc(50% - 40px);
+  margin: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* `Transition` permet d'animer la transformation (scale)
+ * https://developer.mozilla.org/fr/docs/Web/CSS/transition
+*/
+.product-item img {
+  max-width: 100%;
+  width: 700px;
+  height: 400px;
+  transition: transform 0.5s ease;
+  object-fit: cover;
+}
+
+.product-item img:hover {
+  transform: scale(1.1);
+}
+
+.section-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 0;
+}
+
+.section-bottom button {
+  padding: 15px 30px;
+  border-radius: 4px;
+  font-size: 24px;
+  background-color: var(--white);
+  border: 2px solid var(--black);
+  text-transform: capitalize;
+}
+
+@media (max-width: 850px) {
+  .product-badge {
+    display: none;
+  }
+
+  .product-item {
+    width: 100%;
+  }
+
+  .section-bottom {
+    padding: 50px 0;
+  }
+
+  .section-bottom button {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+}
+
+.profile {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 5px;
+  color: black;
+  z-index: 10;
+  font-family: "DM Sans", Arial, Helvetica, sans-serif;
+  font-size: 34px;
+}
+
+/* -------------------- PHILOSOPHY -------------------- */
+
+.philosophy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.philosophy img {
+  padding: 20px;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 800px;
+  height: 800px;
+  padding: 80px;
+  background-color: antiquewhite;
+  color: var(--black);
+}
+
+.box h3 {
+  color: var(--black);
+  font-family: "DM Sans", sans-serif;
+  font-size: 45px;
+  font-weight: 700;
+}
+
+.box p {
+  margin-top: 30px;
+}
+
+.box a {
+  margin-top: 30px;
+  font-family: "Space Mono", monospace;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 700;
+  border-bottom: 3px solid var(--orange);
+}
+
+@media (max-width: 850px) {
+  .philosophy {
+    padding: 30px;
+  }
+
+  .box {
+    height: 400px;
+    padding: 20px;
+    font-size: 16px;
+  }
+
+  .box h3 {
+    font-size: 24px;
+  }
+
+  .box a {
+    font-size: 16px;
+  }
+}
+
+/* -------------------- NEWSLETTER -------------------- */
+
+.newsletter {
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 30px;
+  background-color: var(--white);
+  font-family: "Space Mono", monospace;
+}
+
+.newsletter span {
+  text-align: center;
+}
+
+.newsletter form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.newsletter input,
+.newsletter button {
+  height: 80px;
+  padding: 20px 30px;
+  border: 2px solid var(--black);
+  color: var(--black);
+  background-color: var(--white);
+  border-radius: 0;
+}
+
+.newsletter input::placeholder {
+  color: var(--black);
+  opacity: 1;
+}
+
+/* `margin-left` permet de superposer les deux bordures */
+.newsletter button {
+  cursor: pointer;
+  margin-left: -2px;
+}
+
+@media (max-width: 850px) {
+  .newsletter {
+    height: 250px;
+  }
+
+  .newsletter span {
+    font-size: 16px;
+  }
+
+  .newsletter input {
+    max-width: 200px;
+  }
+
+  .newsletter input,
+  .newsletter button {
+    height: 70px;
+    padding: 20px;
+    font-size: 16px;
+  }
+}
+
+/* -------------------- FOOTER -------------------- */
+
+footer {
+  padding: 40px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: antiquewhite;
+  color: var(--black);
+}
+
+footer p {
+  font-family: "Space Mono", monospace;
+  font-size: 16px;
+}
+
+.social-icons {
+  display: flex;
+}
+
+/* Cible le dernier élément
+ * https://developer.mozilla.org/fr/docs/Web/CSS/:last-child
+*/
+.social-icons i:last-child {
+  margin-left: 1.5rem;
+}
+
+@media (max-width: 850px) {
+  footer {
+    flex-direction: column;
+    padding: 30px;
+  }
+
+  footer p {
+    padding-bottom: 10px;
+  }
 }
